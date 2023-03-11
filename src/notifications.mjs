@@ -80,7 +80,7 @@ export default class NotificationsManager {
     #setPing( newPing = undefined ){
         this.customPing = newPing;
         this.#ping = game.audio.create({
-            src: '/modules/exaltedthird-anima/resources/' + (this.customPing || game.settings.get(this.prefix, "preferredPing") || 'dice-notif-light.mp3'),
+            src: '/modules/notifications/resources/' + (this.customPing || game.settings.get(this.prefix, "preferredPing") || 'dice-notif-light.mp3'),
             preload: true,
             autoplay: false,
             singleton: true,
