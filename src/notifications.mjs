@@ -110,7 +110,7 @@ export default class NotificationsManager {
                 type = 'CONST.CHAT_MESSAGE_TYPES.OOC';
                 break;
             case CONST.CHAT_MESSAGE_TYPES.IC:
-                if      (chatMessage.speaker.token) icon = game.actors.tokens.get(chatMessage.speaker.token).img
+                if      (chatMessage.speaker.token) icon = game.canvas.tokens.get(chatMessage.speaker.token).img
                 else if (chatMessage.speaker.actor) icon = game.actors.get(chatMessage.speaker.actor).img
                 type = 'CONST.CHAT_MESSAGE_TYPES.IC';
                 break;
@@ -134,8 +134,8 @@ export default class NotificationsManager {
         if(!document.hasFocus())
         {
             if( (serverTime - this.#lastPingTime) > game.settings.get(this.prefix, "cooldown")*1000 ){
-                this.#lastPingTime = game.time.serverTime
-                game.audio.play(this.#ping?.src, { volume: 1 });
+                this.#lastPingTime = serverTime
+                game.audio.play(this.#ping.src, { volume: 1 });
             }
             let notif = new Notification(`${data.alias}:\t${body}`, {
                 body, badge, icon, tag,
