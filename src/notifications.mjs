@@ -1,5 +1,3 @@
-import { Debug } from "./common.mjs";
-
 export default class NotificationsManager {
 
     #ping
@@ -150,6 +148,5 @@ export default class NotificationsManager {
 
 // sort-of equivalent of Python's `if __name__ == '__main__'` as long as you add "#module" to the import path
 if(!import.meta.url.toString().endsWith('#module')){
-    Debug.log('NotificationsManager running standalone', import.meta.url );
     new NotificationsManager();
 }
